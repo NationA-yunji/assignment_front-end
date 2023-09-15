@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 
+const ROOT_URL = process.env.REACT_APP_ROOT;
+
 function App() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     // 서버 측 API 엔드포인트로 요청 보내기
-    fetch(`http://3.34.95.145/api/getData`)
+    fetch(`${ROOT_URL}/api/getData`)
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((error) => console.error('Error:', error));
